@@ -39,4 +39,22 @@
   <script src="/index.js"></script>
 </body>
 
+<script type="text/javascript">
+
+  function runNoteQuery() {
+    var currentURL = window.location.origin;
+
+    $.ajax({url: currentURL + '/api/notes', method: "GET"})
+      .done(function(noteData) {
+        console.log("--------------------------------")
+        console.log("URL: " + currentURL + "api/notes")
+        console.log("---------------------------------")
+        console.log(noteData);
+        console.log("---------------------------------")
+      })
+  }
+  runNoteQuery();
+
+</script>
+
 </html>
