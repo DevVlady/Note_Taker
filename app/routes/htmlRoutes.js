@@ -13,7 +13,7 @@ module.exports = function(app) {
     });
 
     //If no route then default to index
-    // app.use( function(req, res) {
-    //     res.sendFile(path.join(__dirname + "/../public/index.html"));
-    // });
+    app.use( function(req, res) {
+        res.sendFile(path.join(__dirname + "/../public/index.html"));
+    });
 };
