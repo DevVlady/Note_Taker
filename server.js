@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Parse application/json
 app.use(bodyParser.json());
 
+app.use(express.static('public'));
+
 // app.use(function(req, res) {
 //     res.setHeader('Content-Type', 'text/plain');
 //     res.write('you posted:\n');
