@@ -1,7 +1,7 @@
 //Load data
 //Linking route to data sources which hold the arrays
 var noteData = require("..data/noteData");
-var noteList = require("..data/noteList");
+var noteList = require("..data/noteListData");
 
 //Routing info
 module.exports = function(app) {
@@ -29,5 +29,5 @@ module.exports = function(app) {
     });
 
     //Write code to delete lists when the delete button is pressed
-    
+
 };
