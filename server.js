@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 //     res.end(JSON.stringify(req.body, null, 2))
 // });
 
+//Includes HTML routes using express
 require('./app/routes/htmlRoutes.js')(app);
 
 app.listen(PORT, function() {
