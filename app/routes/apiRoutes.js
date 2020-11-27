@@ -13,9 +13,9 @@ module.exports = function(app) {
     })
 
     //Get mothod for the note lists
-    // app.get("/api/lists", function(req, res) {
-    //     res.json(noteList);
-    // })
+    app.get("/api/lists", function(req, res) {
+        res.json(noteList);
+    })
 
 
     //API POST Method
