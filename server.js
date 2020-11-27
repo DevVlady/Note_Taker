@@ -1,4 +1,8 @@
 var express = require('express');
 var app = express();
 
-app.get('/', )
+app.get('/', function (req, res) {
+    res.send('')
+})
+
+app.listen(3000);
