@@ -54,6 +54,11 @@
         //Array to pick the length of the list
         for (var i = 0; i < noteData.length; i++) {
           console.log(noteData[i]);
+          //Display the notes
+          var noteTitleEl = $("<h3>").text(`${data[i].noteTitle}`);
+          var noteItemEl = $("<h3>").text(`${data[i].noteText}`);
+            $(".note-title").append(noteTitleEl);
+            $(".note-textarea").append(noteItemEl);
         }
       })
   }

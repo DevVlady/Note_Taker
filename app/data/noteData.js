@@ -4,8 +4,8 @@
 
 var notepadArray = [
     {
-        noteTitle: '',
-        noteText: '',
+        noteTitle: 'Grocery List',
+        noteText: ['bread', 'milk', 'butter'],
     }
 ];
 
