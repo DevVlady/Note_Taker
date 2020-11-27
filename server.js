@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Parse application/json
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // app.use(function(req, res) {
 //     res.setHeader('Content-Type', 'text/plain');
@@ -24,6 +24,7 @@ app.use(express.static('public'));
 // });
 
 //Includes HTML routes using express
+require('./app/routes/apiRoutes.js')(app);
 require('./app/routes/htmlRoutes.js')(app);
 
 app.listen(PORT, function() {

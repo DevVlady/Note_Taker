@@ -1,7 +1,7 @@
 //Load data
 //Linking route to data sources which hold the arrays
-var noteData = require("..data/noteData");
-var noteList = require("..data/noteListData");
+var noteData = require("../data/noteData.js");
+var noteList = require("../data/noteListData.js");
 
 //Routing info
 module.exports = function(app) {
@@ -13,20 +13,20 @@ module.exports = function(app) {
     })
 
     //Get mothod for the note lists
-    app.get("/api/lists", function(req, res) {
-        res.json(noteList);
-    })
+    // app.get("/api/lists", function(req, res) {
+    //     res.json(noteList);
+    // })
 
 
     //API POST Method
-    app.post("/api/notes", function(req, res) {
-        if (noteData) {
-            noteData.push(req.body);
-            res.json(true);
-        } else {
-            res.json(false);
-        }
-    });
+    // app.post("/api/notes", function(req, res) {
+    //     if (noteData) {
+    //         noteData.push(req.body);
+    //         res.json(true);
+    //     } else {
+    //         res.json(false);
+    //     }
+    // });
 
     //Write code to delete lists when the delete button is pressed
 
