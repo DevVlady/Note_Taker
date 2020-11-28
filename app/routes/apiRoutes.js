@@ -11,9 +11,14 @@ module.exports = function(app) {
         res.json(noteData);
     })
 
-    // app.get("api/:noteData?", function(req, res) {
-    //     var selected = req.params.noteData;
-    //     console.log(selected);
-    //     res.end();
-    // });
+    //Method to post the notes and save them when the save buttom is clicked
+    app.post("/api/notes", function(req, res) {
+        var newNote = req.body;
+        newNote.routeName = newNote.name.replace(/\s+/g, "").toLowerCase();
+        console.log(newNote);
+
+        noteData.push(newNote);
+        res.json(newNote);
+    })
+
 };
