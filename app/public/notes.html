@@ -36,24 +36,7 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/index.js"></script>
-  <script type="text/javascript">
-
-  $(".save-note").on("click", function() {
-    var newNote = {
-      title: $(".note-title").val().trim(),
-      text: $(".note-textarea").val().trim(),
-    };
-
-    $.post("http://localhost:8080/api/notes", newNote)
-    .done(function(data) {
-      console.log(data);
-    });
-
-    return;
-  })
-
-  </script>
+  <script src="/assets/js/index.js"></script>
 </body>
 
 </html>

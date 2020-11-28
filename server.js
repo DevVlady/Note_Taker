@@ -1,18 +1,15 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-// const path = require('path');
+const path = require('path');
 const fs = require('fs');
 // const { promisify } = require('util');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-//Get Saved Notes
-// var savedNotes = promisify(fs.readFile);
 
-//Parse application
 app.use(bodyParser.urlencoded({ extended: false }));
-//Parse application/json
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.json({ type: 'application/**json' }))
