@@ -1,7 +1,6 @@
 //Load data
 //Linking route to data sources which hold the arrays
 var noteData = require("../data/noteData.js");
-var noteList = require("../data/noteListData.js");
 
 //Routing info
 module.exports = function(app) {
@@ -13,9 +12,9 @@ module.exports = function(app) {
     })
 
     //Get mothod for the note lists
-    app.get("/api/lists", function(req, res) {
-        res.json(noteList);
-    })
+    // app.get("/api/lists", function(req, res) {
+    //     res.json(noteList);
+    // })
 
 
     //API POST Method
