@@ -8,4 +8,13 @@ module.exports = function(app) {
         res.json(noteData);
     })
 
+    //Return notes saved in api array
+    app.get("/api/notes/:title", function(req, res) {
+        const title = rq.params.title;
+        res.json(noteData[title]);
+    });
+
+    //Add new note to the api array
+    
+
 };
