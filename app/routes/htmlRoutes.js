@@ -1,4 +1,3 @@
-const { dirname } = require('path');
 //Path package
 var path = require('path');
 

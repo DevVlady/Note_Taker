@@ -1,21 +1,21 @@
-var bodyParser = require('body-parser');
-var express = require('express');
-var path = require('path');
+const bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const { promisify } = require('util');
 
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-// app.get('/', function (req, res) {
-//     res.send('Blah Blah Blah...TEST')
-// })
+//Get Saved Notes
+var savedNotes = promisify(fs.readFile);
 
 //Parse application
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(express.urlencoded({ extended: true }));
 //Parse application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
-// app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 
 // app.use(function(req, res) {
 //     res.setHeader('Content-Type', 'text/plain');

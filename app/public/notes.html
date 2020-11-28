@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/assets/css/">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
@@ -41,28 +41,45 @@
 
 <script type="text/javascript">
 
-  function runNoteQuery() {
-    var currentURL = window.location.origin;
+  $(".save-note").on("click", function() {
+    var newNote = {
+      title: $(".note-title").val().trim(),
+      text: $(".note-textarea").val().trim(),
+    };
+    $.post("http://localhost:8080/api/new", newNote)
+    .done(function(data) {
+      console.log(data);
+    });
+    return false;
+  })
 
-    $.ajax({url: currentURL + '/api/notes', method: "GET"})
-      .done(function(noteData) {
-        console.log("--------------------------------")
-        console.log("URL: " + currentURL + "api/notes")
-        console.log("---------------------------------")
-        console.log(noteData);
-        console.log("---------------------------------")
-        //Array to pick the length of the list
-        for (var i = 0; i < noteData.length; i++) {
-          console.log(noteData[i]);
-          //Display the notes
-          var noteTitleEl = $(".note-title").text(`${data[i].noteTitle}`);
-          var noteItemEl = $(".note-textarea").text(`${data[i].noteText}`);
-            // $(".note-title").append(noteTitleEl);
-            // $(".note-textarea").append(noteItemEl);
-        }
-      })
-  }
-  runNoteQuery();
+  // function runNoteQuery() {
+  //   var currentURL = window.location.origin;
+
+  //   $.ajax({url: currentURL + '/api/notes', method: "GET"})
+  //     .done(function(noteData) {
+  //       console.log("--------------------------------")
+  //       console.log("URL: " + currentURL + "api/notes")
+  //       console.log("---------------------------------")
+  //       console.log(noteData);
+  //       console.log("---------------------------------")
+  //       //Array to pick the length of the list
+  //       for (var i = 0; i < noteData.length; i++) {
+  //         console.log(noteData[i]);
+  //         //Display the notes
+  //         var note = $("<div>");
+  //         note.addClass('type');
+  //         note.attr('id', 'noteType-' + i+1);
+  //         $(".note-title").append(note);
+
+  //         var noteItem = i + 1;
+
+  //         $("#noteType-" + i+1).append('<p>' + noteItem + noteData[i] + "</p>");
+
+  //      }
+  //     })
+  // }
+  // runNoteQuery();
 
 </script>
 
