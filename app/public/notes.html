@@ -39,48 +39,4 @@
   <script src="/index.js"></script>
 </body>
 
-<script type="text/javascript">
-
-  $(".save-note").on("click", function() {
-    var newNote = {
-      title: $(".note-title").val().trim(),
-      text: $(".note-textarea").val().trim(),
-    };
-    $.post("http://localhost:8080/api/new", newNote)
-    .done(function(data) {
-      console.log(data);
-    });
-    return false;
-  })
-
-  // function runNoteQuery() {
-  //   var currentURL = window.location.origin;
-
-  //   $.ajax({url: currentURL + '/api/notes', method: "GET"})
-  //     .done(function(noteData) {
-  //       console.log("--------------------------------")
-  //       console.log("URL: " + currentURL + "api/notes")
-  //       console.log("---------------------------------")
-  //       console.log(noteData);
-  //       console.log("---------------------------------")
-  //       //Array to pick the length of the list
-  //       for (var i = 0; i < noteData.length; i++) {
-  //         console.log(noteData[i]);
-  //         //Display the notes
-  //         var note = $("<div>");
-  //         note.addClass('type');
-  //         note.attr('id', 'noteType-' + i+1);
-  //         $(".note-title").append(note);
-
-  //         var noteItem = i + 1;
-
-  //         $("#noteType-" + i+1).append('<p>' + noteItem + noteData[i] + "</p>");
-
-  //      }
-  //     })
-  // }
-  // runNoteQuery();
-
-</script>
-
 </html>
