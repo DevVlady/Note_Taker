@@ -11,15 +11,9 @@ module.exports = function(app) {
         res.json(noteData);
     })
 
-    app.get("api/:noteData?", function(req, res) {
-        var selected = req.params.noteData;
-        console.log(selected);
-        res.end();
-    });
-
-    //Get mothod for the note lists
-    // app.get("/api/lists", function(req, res) {
-    //     res.json(noteList);
-    // })
-
+    // app.get("api/:noteData?", function(req, res) {
+    //     var selected = req.params.noteData;
+    //     console.log(selected);
+    //     res.end();
+    // });
 };

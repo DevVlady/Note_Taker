@@ -1,27 +1,27 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
-const { promisify } = require('util');
+// const { promisify } = require('util');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 //Get Saved Notes
-var savedNotes = promisify(fs.readFile);
+// var savedNotes = promisify(fs.readFile);
 
 //Parse application
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 //Parse application/json
-app.use(express.json());
+app.use(bodyParser.json());
 
-app.use(express.static(__dirname + 'public'));
+app.use(bodyParser.json({ type: 'application/**json' }))
 
-// app.use(function(req, res) {
-//     res.setHeader('Content-Type', 'text/plain');
-//     res.write('you posted:\n');
-//     res.end(JSON.stringify(req.body, null, 2))
-// });
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+
+app.use(bodyParser.text({ type: 'text.html' }))
+
+// app.use(bodyParser.static(__dirname + 'public'));
 
 //Includes HTML routes using express
 require('./app/routes/apiRoutes.js')(app);
