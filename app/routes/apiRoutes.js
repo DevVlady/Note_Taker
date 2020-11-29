@@ -1,5 +1,7 @@
 //Linking route to data sources which hold the arrays
-var noteData = require("../data/db.json");
+const noteData = require('../data/db.json');
+const bodyParser = require('body-parser');
+
 
 //Routing info
 module.exports = function(app) {
@@ -8,13 +10,19 @@ module.exports = function(app) {
         res.json(noteData);
     })
 
+    //Add new note to the api array
+    app.post("/api/notes", function(req, res) {
+        let newNote = req.query
+        console.log(newNote)
+        //Using push method to add the new note to the array
+
+        noteData.push(newNote);
+        res.json(noteData);
+    })
+
     //Return notes saved in api array
     app.get("/api/notes/:title", function(req, res) {
-        const title = rq.params.title;
+        const title = req.params.title;
         res.json(noteData[title]);
     });
-
-    //Add new note to the api array
-    
-
 };
