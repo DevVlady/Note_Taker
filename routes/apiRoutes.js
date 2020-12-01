@@ -7,7 +7,7 @@ module.exports = function (router) {
     // GET "/api/notes" responds with all notes from the database
     router.get("/api/notes", function (req, res) {
         console.log('GOOD **GET /api/notes**')
-        fs.readFile(noteData, function (err, data) {
+        fs.readFile("../data/db.json", function (err, data) {
             //Throw err code if err
             if (err) throw err;
             let allNotes = JSON.parse(data);
@@ -17,7 +17,7 @@ module.exports = function (router) {
 
     // POST "/api/notes"
     router.post("/api/notes", function (req, res) {
-        let noteSaved = JSON.stringify(fs.readFileSync('..data/db.json', utf8));
+        let noteSaved = JSON.stringify(fs.readFileSync('../data/db.json', utf8));
         console.log('POST*** /api/notes')
         //Create new note variable
         let newNote = req.query
@@ -26,7 +26,7 @@ module.exports = function (router) {
         noteData.push(newNote);
         res.json(noteData);
 
-        fs.writeFileSync(noteData, JSON.stringify(noteSaved), (err) => {
+        fs.writeFileSync("../data/db.json", JSON.stringify(noteSaved), (err) => {
             if (err) throw err;
             console.log("ERROR")
         });
@@ -37,7 +37,7 @@ module.exports = function (router) {
     router.delete("/api/notes/:id", function (req, res) {
         console.log('DELETE*** /api/notes')
         const notesDeleted = req.params.id;
-        fs.readFile("data/db.json", function (err, data) {
+        fs.readFile("../data/db.json", function (err, data) {
             if (err) throw err;
             let allNotes = JSON.parse(data);
 
@@ -51,7 +51,7 @@ module.exports = function (router) {
             }
             searchNotes(notesDeleted, allNotes);
 
-            fs.writeFile("data/db.json", JSON.stringify(allNotes, null, 2), (err) => {
+            fs.writeFile("../data/db.json", JSON.stringify(allNotes, null, 2), (err) => {
                 if (err) throw err;
                 res.send('200')
             });
