@@ -18,10 +18,6 @@ module.exports = function(router) {
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    //If no route then default to index
-    // router.use( function(req, res) {
-    //     res.sendFile(path.join(__dirname + "/../public/index.html"));
-    // });
 
     // console.log(__dirname + "/public/index.html")
 };
