@@ -8,6 +8,7 @@ const noteData = require('../data/db.json');
 module.exports = function(router) {
     // GET "/api/notes" responds with all notes from the database
     router.get("/api/notes", function(req, res) {
+        console.log('api/notes')
         res.json(noteData);
     })
     // router.get("/notes", (req, res) => {
@@ -20,7 +21,7 @@ module.exports = function(router) {
     // POST "/api/notes"
     // Use addNote in the store object
     //Add new note to the api array
-    router.post("/api/notes", function(req, res) {
+    router.post("/notes", function(req, res) {
         let newNote = req.query
         console.log(newNote)
         //Using push method to add the new note to the array
