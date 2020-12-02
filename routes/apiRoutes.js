@@ -54,4 +54,11 @@ module.exports = function (router) {
             });
         });
     });
+
+    // Return notes saved in api array
+    router.get("/api/notes", function (req, res) {
+        console.log('**LAST GET METHOD****')
+        // const title = req.params.title;
+        res.json(noteData);
+    });
 }
