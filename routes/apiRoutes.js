@@ -3,6 +3,7 @@ const router = require("express").Router();
 const noteData = require('../data/db.json');
 const fs = require('fs');
 
+
 module.exports = function (router) {
     // GET "/api/notes" responds with all notes from the database
     router.get("/api/notes", function (req, res) {
@@ -18,20 +19,15 @@ module.exports = function (router) {
 
     // POST "/api/notes"
     router.post("/api/notes", function (req, res) {
-        let noteSaved = JSON.stringify(fs.readFileSync('./data/db.json', utf8));
         console.log('**POST_METHOD**')
-        //Create new note variable
-        let newNote = req.query
-        console.log(newNote)
-        //Using push method to add the new note to the array
+        const {body: {title, text}} = req;
+
+        let newNote = {
+            "title": title,
+            "text": text
+        }
         noteData.push(newNote);
         res.json(noteData);
-
-        fs.writeFileSync("./data/db.json", JSON.stringify(noteSaved), (err) => {
-            if (err) throw err;
-            console.log("ERROR")
-        });
-        return res.json(noteSaved);
     })
 
     // DELETE "/api/notes" deletes the note with an id equal to req.params.id
@@ -58,11 +54,4 @@ module.exports = function (router) {
             });
         });
     });
-
-    // Return notes saved in api array
-    // router.get("/api/notes", function (req, res) {
-    //     console.log('**LAST GET METHOD****')
-    //     // const title = req.params.title;
-    //     res.json(noteData);
-    // });
 }
