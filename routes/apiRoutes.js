@@ -23,6 +23,7 @@ module.exports = function (router) {
         const {body: {title, text}} = req;
 
         let newNote = {
+            "id": noteData.length + 1,
             "title": title,
             "text": text
         }
@@ -33,7 +34,7 @@ module.exports = function (router) {
     // DELETE "/api/notes" deletes the note with an id equal to req.params.id
     router.delete("/api/notes/:id", function (req, res) {
         console.log('**DELETE_METHOD**')
-        const notesDeleted = req.params.id;
+        const notesDeleted = req.params.id - 1;
         fs.readFile("./data/db.json", function (err, data) {
             if (err) throw err;
             let allNotes = JSON.parse(data);
