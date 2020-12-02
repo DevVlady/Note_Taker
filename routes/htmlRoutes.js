@@ -7,13 +7,13 @@ const router = require("express").Router();
 module.exports = function(router) {
     // "/notes" responds with the notes.html file
     router.get("/notes", function(req, res) {
-        console.log('GOOD*HTMLRoutes* /notes')
+        console.log('**HTML_ROUTES-GET_METHOD**')
         res.sendFile(path.join(__dirname, "../public/notes.html"));
     });
 
     // All other routes respond with the index.html file
-    router.use("*", function(req, res) {
-        console.log('*')
+    router.get("*", function(req, res) {
+        console.log('*******')
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 

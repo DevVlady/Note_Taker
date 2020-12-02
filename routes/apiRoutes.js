@@ -6,8 +6,9 @@ const fs = require('fs');
 module.exports = function (router) {
     // GET "/api/notes" responds with all notes from the database
     router.get("/api/notes", function (req, res) {
-        console.log('GOOD **GET /api/notes**')
-        fs.readFile("../data/db.json", function (err, data) {
+        console.log('**GET_METHOD**')
+        fs.readFile("./data/db.json", function (err, data) {
+            console.log(noteData)
             //Throw err code if err
             if (err) throw err;
             let allNotes = JSON.parse(data);
@@ -17,8 +18,8 @@ module.exports = function (router) {
 
     // POST "/api/notes"
     router.post("/api/notes", function (req, res) {
-        let noteSaved = JSON.stringify(fs.readFileSync('../data/db.json', utf8));
-        console.log('POST*** /api/notes')
+        let noteSaved = JSON.stringify(fs.readFileSync('./data/db.json', utf8));
+        console.log('**POST_METHOD**')
         //Create new note variable
         let newNote = req.query
         console.log(newNote)
@@ -26,7 +27,7 @@ module.exports = function (router) {
         noteData.push(newNote);
         res.json(noteData);
 
-        fs.writeFileSync("../data/db.json", JSON.stringify(noteSaved), (err) => {
+        fs.writeFileSync("./data/db.json", JSON.stringify(noteSaved), (err) => {
             if (err) throw err;
             console.log("ERROR")
         });
@@ -35,9 +36,9 @@ module.exports = function (router) {
 
     // DELETE "/api/notes" deletes the note with an id equal to req.params.id
     router.delete("/api/notes/:id", function (req, res) {
-        console.log('DELETE*** /api/notes')
+        console.log('**DELETE_METHOD**')
         const notesDeleted = req.params.id;
-        fs.readFile("../data/db.json", function (err, data) {
+        fs.readFile("./data/db.json", function (err, data) {
             if (err) throw err;
             let allNotes = JSON.parse(data);
 
@@ -51,7 +52,7 @@ module.exports = function (router) {
             }
             searchNotes(notesDeleted, allNotes);
 
-            fs.writeFile("../data/db.json", JSON.stringify(allNotes, null, 2), (err) => {
+            fs.writeFile("./data/db.json", JSON.stringify(allNotes, null, 2), (err) => {
                 if (err) throw err;
                 res.send('200')
             });
