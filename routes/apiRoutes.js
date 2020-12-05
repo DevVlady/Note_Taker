@@ -34,36 +34,3 @@ router.delete("/notes/:id", (req, res) => {
 })
 
 module.exports = router;
-
-
-
-
-
-
-
-    // DELETE "/api/notes" deletes the note with an id equal to req.params.id
-//     router.delete("/api/notes/:id", function (req, res) {
-//         console.log('**DELETE_METHOD**')
-//         const notesDeleted = req.params.id - 1;
-//         fs.readFile("./data/db.json", function (err, data) {
-//             if (err) throw err;
-//             let allNotes = JSON.parse(data);
-
-//             function searchNotes(notesDeleted, allNotes) {
-//                 console.log('NotesDeleted',notesDeleted)
-//                 console.log('allNotes', allNotes)
-//                 console.log('searchNotes()')
-//                 for (var i = 0; i < allNotes.length; i++) {
-//                     if (allNotes[i].id === notesDeleted) {
-//                         allNotes.splice([i], 1);
-//                     }
-//                 }
-//             }
-//             searchNotes(notesDeleted, allNotes);
-
-//             fs.writeFile("./data/db.json", JSON.stringify(allNotes, null, 2), (err) => {
-//                 if (err) throw err;
-//                 res.send('200')
-//             });
-//         });
-//     });
