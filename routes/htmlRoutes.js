@@ -9,7 +9,7 @@ router.get("/notes", (req, res) => {
 });
 
 // All other routes respond with the index.html file
-router.get("*", (req, res) => {
+router.get("/", (req, res) => {
     console.log('**INDEX.HTML**')
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
