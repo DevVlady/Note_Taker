@@ -1,10 +1,11 @@
 {
   "name": "Note_Taker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Platform to add, delete and save your notes",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,7 @@
   },
   "homepage": "https://github.com/Vlady14/Note_Taker#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "scripts": "^0.1.0",
-    "start": "^5.1.0",
-    "store": "^2.0.12",
     "uuid": "^8.3.1"
   }
 }
