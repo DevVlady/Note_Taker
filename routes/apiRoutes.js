@@ -14,6 +14,8 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
     console.log('**POST_METHOD**')
     // Use addNote in the store object
+    console.log('req.body', req.body)
+
     store
         .addNote(req.body)
         .then((notes) => res.json(notes))
@@ -21,11 +23,12 @@ router.post("/notes", (req, res) => {
 });
 
 // DELETE "/api/notes" deletes the note with an id equal to req.params.id
-router.delete("/notes:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
     console.log('**DELETE_METHOD**')
     // Use removeNote method in the store object
+    console.log('req.params.id', req.params.id)
     store
-        .removeNote(req.params.id - 1)
+        .removeNote(req.params.id)
         .then((notes) => res.json(notes))
         .catch((err) => res.status(500).json(err));
 })
