@@ -51,7 +51,7 @@ module.exports = function (router) {
                 console.log('NotesDeleted',notesDeleted)
                 console.log('allNotes', allNotes)
                 console.log('searchNotes()')
-                for (var i = 1; i < allNotes.length; i++) {
+                for (var i = 0; i < allNotes.length; i++) {
                     if (allNotes[i].id === notesDeleted) {
                         allNotes.splice([i], 1);
                     }
@@ -65,11 +65,4 @@ module.exports = function (router) {
             });
         });
     });
-
-    // Return notes saved in api array
-    // router.get("/api/notes", function (req, res) {
-    //     console.log('**LAST GET METHOD****')
-    //     // const title = req.params.title;
-    //     res.json(noteData);
-    // });
 }
