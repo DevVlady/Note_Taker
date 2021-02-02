@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vlady14/Note_Taker.git"
+    "url": "git+https://github.com/DevVlady/Note_Taker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vlady14/Note_Taker/issues"
+    "url": "https://github.com/DevVlady/Note_Taker/issues"
   },
-  "homepage": "https://github.com/Vlady14/Note_Taker#readme",
+  "homepage": "https://github.com/DevVlady/Note_Taker#readme",
   "dependencies": {
     "express": "^4.17.1",
     "uuid": "^8.3.1"
